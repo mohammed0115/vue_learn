@@ -13,7 +13,7 @@
   </head>
   <body>
     <div id="root">
-     <input type="text" id="input" v-model="message">
+     <input type="text" id="input" v-model="message" v-bind:title="title">
      <p>the value of input is :{{message}}</p>
      <ul>
      <li v-for="name in names" v-text="name"></li>
@@ -22,7 +22,7 @@
      <li v-for="name in names" >{{name}}</li>
      -->
      </ul>
-     <input type="text" id="add_name" v-model="newName">
+     <input type="text" id="add_name" v-model="newName" v-bind:title="title">
      <button id="button" v-on:click="addName">add name</button>
     
     </div>
@@ -32,6 +32,7 @@
    var apps= new Vue({
       el:'#root',
       data:{
+        title:'this for learning Vue js',
         newName:'',
         message:"hello world",
         names:['mohammed','kamal','hassaballah']
