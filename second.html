@@ -1,0 +1,49 @@
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="./static/css/bootstrap.min.css" rel="stylesheet" >
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div id="root">
+     <input type="text" id="input" v-model="message">
+     <p>the value of input is :{{message}}</p>
+     <ul>
+     <li v-for="name in names" v-text="name"></li>
+     <!--
+     or use this
+     <li v-for="name in names" >{{name}}</li>
+     -->
+     </ul>
+     <input type="text" id="add_name" >
+     <button id="button">add name</button>
+    
+    </div>
+    <script src="./static/js/bootstrap.bundle.min.js"></script>
+    <script src="./static/js/vue.js"></script>
+    <script>
+   var apps= new Vue({
+      el:'#root',
+      data:{
+        message:"hello world",
+        names:['mohammed','kamal','hassaballah']
+      },
+      mounted(){
+    document.querySelector('#button').addEventListener('click',()=>{
+     let name= document.querySelector('#add_name');
+     apps.names.push(name.value);
+     name.value='';
+    });
+      }
+    });
+   
+    </script>
+  </body>
+</html>
