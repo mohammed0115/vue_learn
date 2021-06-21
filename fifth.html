@@ -1,0 +1,39 @@
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="./static/css/bootstrap.min.css" rel="stylesheet" >
+
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div id="root">
+  
+       <task>mohammed kamal</task>
+       <task>mohammed osman</task>
+       <task>mohammed hassen</task>
+       <task>mohammed ali</task>
+
+
+    </div>
+    <script src="./static/js/bootstrap.bundle.min.js"></script>
+    <script src="./static/js/vue.js"></script>
+    <script>
+    Vue.component('task',{
+
+     template:"<li><slot></slot></li>"
+
+    });
+    new Vue({
+      el:'#root',
+      
+    });
+   
+    </script>
+  </body>
+</html>
