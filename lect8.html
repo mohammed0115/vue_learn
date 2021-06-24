@@ -1,0 +1,51 @@
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="./static/css/bootstrap.min.css" rel="stylesheet" >
+    <link rel="stylesheet" href="./static/css/bulma/bootstrap.min.css">
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <div id="root" class="container">
+  
+      <model v-show="showModal" @close="showModal=false">hello world</model>
+      <button @click="showModal=true">show Modal</button>
+           
+    </div>
+    <script src="./static/js/bootstrap.bundle.min.js"></script>
+    <script src="./static/js/vue.js"></script>
+    <script>
+    Vue.component('model',{
+     props:['body']
+     ,
+     template:`
+    <div class="modal is-active ">
+    <div class="modal-background "></div>
+    <div class="modal-content col-3">
+    <div class="box">
+    <slot></slot>
+      
+     </div>
+    </div>
+    <button class="modal-close" @click="$emit('close')"></button>
+    </div>
+`
+
+    });
+    new Vue({
+      el:'#root',
+      data:{
+          showModal:false
+      }
+      
+    });
+   
+    </script>
+  </body>
+</html>
